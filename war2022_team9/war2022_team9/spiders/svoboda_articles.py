@@ -36,7 +36,8 @@ class SvobodaArticlesSpider(scrapy.Spider):
 
         item['article_datetime'] = response.xpath('//*[@id="content"]/div[1]/div[1]/div/div[3]/div/div[1]/span/time').extract()
 
-        item['article_title'] = response.xpath('//*[@id="content"]/div[1]/div[1]/div/div[2]/h1').extract()
+        item['article_title'] = response.xpath('//*[@id="content"]/div[1]/div[1]/div/div[2]/h1/text()').extract()
+
 
         content = response.xpath('//*[@id="article-content"]/div[1]')
         text = []
